@@ -1,12 +1,16 @@
 ﻿namespace MauiPlanets;
 
-public partial class App : Application
+public partial class App
 {
-	public App()
-	{
-		InitializeComponent();
+    public App()
+    {
+        InitializeComponent();
+    }
 
-        MainPage = new NavigationPage(new StartPage());
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+        var window = new Window(new AppShell());
+        return window;
     }
 }
 

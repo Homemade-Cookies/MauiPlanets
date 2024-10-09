@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiPlanets.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiPlanets.Views"
+    Title="MauiPlanets"
+    Shell.FlyoutBehavior="Flyout">
+
+    <!--  Add a flyout control for pages here  -->
+    <Shell.FlyoutHeader>
+        <StackLayout>
+            <Label
+                FontSize="Header"
+                HorizontalOptions="Center"
+                Text="MauiPlanets" />
+            <Line
+                Stroke="White"
+                StrokeThickness="1"
+                X1="0"
+                X2="250"
+                Y1="0"
+                Y2="0" />
+        </StackLayout>
+
+    </Shell.FlyoutHeader>
+    <!--  Set the color of the Shell  -->
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF" />
+            </Style>
+            <Style BasedOn="{StaticResource BaseStyle}" TargetType="ShellItem" />
+            <Style BasedOn="{StaticResource BaseStyle}" TargetType="TabBar" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <!--  A flyout page for MainPage  -->
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:StartPage}"
+        Icon="appicon.png"
+        Route="StartPage" />
+    <ShellContent
+        Title="Planets"
+        ContentTemplate="{DataTemplate local:PlanetsPage}"
+        Icon="imgmenu.png"
+        Route="PlanetsPage" />
+</Shell>

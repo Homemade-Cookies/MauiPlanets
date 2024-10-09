@@ -1,14 +1,14 @@
-﻿global using global::System;
-global using global::System.Linq;
-global using global::System.Threading.Tasks;
-global using global::System.Collections.Generic;
+﻿global using System;
+global using System.Linq;
+global using System.Threading.Tasks;
+global using System.Collections.Generic;
 
-global using global::Microsoft.Maui;
-global using global::Microsoft.Maui.Controls;
-global using global::Microsoft.Maui.Controls.Hosting;
-global using global::Microsoft.Maui.Hosting;
-global using global::Microsoft.Maui.Graphics;
-global using global::Microsoft.Maui.LifecycleEvents;
+global using Microsoft.Maui;
+global using Microsoft.Maui.Controls;
+global using Microsoft.Maui.Controls.Hosting;
+global using Microsoft.Maui.Hosting;
+global using Microsoft.Maui.Graphics;
+global using Microsoft.Maui.LifecycleEvents;
 
 global using MauiPlanets.Views;
 global using MauiPlanets.Models;

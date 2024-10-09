@@ -1,30 +1,31 @@
 ﻿namespace MauiPlanets.Models;
 
-public class Planet
+public sealed record Planet
 {
-    public string Name { get; set; }
-    public string Subtitle { get; set; }
-    public string HeroImage { get; set; }
-    public string Description { get; set; }
-    public Color AccentColorStart { get; set; }
-    public Color AccentColorEnd { get; set; }
-    public List<string> Images { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string Subtitle { get; set; } = string.Empty;
+    public string HeroImage { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
+    public Color AccentColorStart { get; set; } = Colors.LightGray;
+    public Color AccentColorEnd { get; set; } = Colors.DarkGray;
+    public List<UriImageSource> Images { get; init; } = [];
 
     // Background
-    public Brush Background
+    private Brush? _background;
+    public Brush Background => _background ??= CreateBackground();
+    private LinearGradientBrush CreateBackground()
     {
-        get
-        {
-            var gradientStops = new GradientStopCollection();
-            gradientStops.Add(new GradientStop(AccentColorStart, 0.0f));
-            gradientStops.Add(new GradientStop(AccentColorEnd, 1.0f));
+        var gradientStops = new GradientStopCollection
+            {
+                new GradientStop(AccentColorStart, 0.0f),
+                new GradientStop(AccentColorEnd, 1.0f)
+            };
 
-            var bgBrush = new LinearGradientBrush(
-                gradientStops,
-                new Point(0.0, 0.0),
-                new Point(1.0, 1.0));
+        var bgBrush = new LinearGradientBrush(
+            gradientStops,
+            new Point(0.0, 0.0),
+            new Point(1.0, 1.0));
 
-            return bgBrush;
-        }
-    }    
+        return bgBrush;
+    }
 }

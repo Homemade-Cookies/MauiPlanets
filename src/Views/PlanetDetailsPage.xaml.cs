@@ -1,6 +1,6 @@
 ﻿namespace MauiPlanets.Views;
 
-public partial class PlanetDetailsPage : ContentPage
+public sealed partial class PlanetDetailsPage : ContentPage
 {
 	public PlanetDetailsPage(Planet planet)
 	{
@@ -9,7 +9,7 @@ public partial class PlanetDetailsPage : ContentPage
 		this.BindingContext = planet;
     }
 
-    async void BackButton_Clicked(System.Object sender, System.EventArgs e)
+    async void BackButton_Clicked(object sender, EventArgs e)
     {
 		await Navigation.PopAsync();
     }

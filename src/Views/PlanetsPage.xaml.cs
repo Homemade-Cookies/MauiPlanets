@@ -1,28 +1,32 @@
 ﻿namespace MauiPlanets.Views;
 
-public partial class PlanetsPage : ContentPage
+public sealed partial class PlanetsPage : ContentPage
 {
     private const uint AnimationDuration = 800u;
 
     public PlanetsPage()
-	{
-		InitializeComponent();
-	}
-
-    protected override void OnAppearing()
     {
-        base.OnAppearing();
+        InitializeComponent();
+    }
 
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        base.OnNavigatedTo(args);
         lstPopularPlanets.ItemsSource = PlanetsService.GetFeaturedPlanets();
         lstAllPlanets.ItemsSource = PlanetsService.GetAllPlanets();
     }
-
-    async void Planets_SelectionChanged(System.Object sender, Microsoft.Maui.Controls.SelectionChangedEventArgs e)
+    async void Planets_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        await Navigation.PushAsync(new PlanetDetailsPage(e.CurrentSelection.First() as Planet));
+        if (e.CurrentSelection == null || e.CurrentSelection.Count == 0)
+            return;
+
+        if (e.CurrentSelection[0] is Planet planet)
+        {
+            await Navigation.PushAsync(new PlanetDetailsPage(planet));
+        }
     }
 
-    async void ProfilePic_Clicked(System.Object sender, System.EventArgs e)
+    async void ProfilePic_Clicked(object sender, EventArgs e)
     {
         // Reveal our menu and move the main content out of the view
         _ = MainContentGrid.TranslateTo(-this.Width * 0.5, this.Height * 0.1, AnimationDuration, Easing.CubicIn);
@@ -30,7 +34,7 @@ public partial class PlanetsPage : ContentPage
         _ = MainContentGrid.FadeTo(0.8, AnimationDuration);
     }
 
-    async void GridArea_Tapped(System.Object sender, System.EventArgs e)
+    async void GridArea_Tapped(object sender, EventArgs e)
     {
         await CloseMenu();
     }
