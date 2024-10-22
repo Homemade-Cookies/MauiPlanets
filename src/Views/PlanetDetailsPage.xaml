@@ -93,10 +93,10 @@
                 <CollectionView
                     Margin="0,-6,0,0"
                     HeightRequest="160"
-                    ItemSizingStrategy="MeasureAllItems"
-                    ItemsLayout="HorizontalList"
                     ItemsSource="{Binding Images}">
-
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="8" Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="{x:Type UriImageSource}">
                             <Image
@@ -108,12 +108,13 @@
                                 <Image.Clip>
                                     <RoundRectangleGeometry CornerRadius="16" Rect="0,0,160,160" />
                                 </Image.Clip>
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnImageTapped" />
+                                </Image.GestureRecognizers>
                             </Image>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
-
                 </CollectionView>
-
             </VerticalStackLayout>
 
         </ScrollView>
