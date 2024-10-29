@@ -9,8 +9,16 @@ public partial class App
 
     protected override Window CreateWindow(IActivationState? activationState)
     {
-        var window = new Window(new AppShell());
-        return window;
+        try
+        {
+            var window = new Window(new AppShell());
+            return window;
+        }
+        catch (Exception ex)
+        {
+            // Log the exception
+            Console.WriteLine($"Error creating window: {ex.Message}");
+            throw;
+        }
     }
 }
-
