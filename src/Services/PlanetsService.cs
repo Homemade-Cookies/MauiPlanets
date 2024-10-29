@@ -140,8 +140,8 @@ internal static class PlanetsService
         }
         catch (Exception ex)
         {
-            // Log the exception
-            Console.WriteLine($"Error getting all planets: {ex.Message}");
+            // Log the exception using Serilog
+            Serilog.Log.Error(ex, "Error getting all planets");
             throw;
         }
     }
@@ -154,8 +154,8 @@ internal static class PlanetsService
         }
         catch (Exception ex)
         {
-            // Log the exception
-            Console.WriteLine($"Error getting planet {planetName}: {ex.Message}");
+            // Log the exception using Serilog
+            Serilog.Log.Error(ex, $"Error getting planet {planetName}");
             throw;
         }
     }
@@ -171,8 +171,8 @@ internal static class PlanetsService
         }
         catch (Exception ex)
         {
-            // Log the exception
-            Console.WriteLine($"Error getting featured planets: {ex.Message}");
+            // Log the exception using Serilog
+            Serilog.Log.Error(ex, "Error getting featured planets");
             throw;
         }
     }

@@ -16,8 +16,8 @@ public partial class App
         }
         catch (Exception ex)
         {
-            // Log the exception
-            Console.WriteLine($"Error creating window: {ex.Message}");
+            // Log the exception using Serilog
+            Serilog.Log.Error(ex, "Error creating window");
             throw;
         }
     }
