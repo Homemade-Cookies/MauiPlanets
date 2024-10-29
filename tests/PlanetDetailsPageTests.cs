@@ -39,4 +39,55 @@ public class PlanetDetailsPageTests
         Assert.NotNull(zoomPage);
         Assert.IsType<Border>(zoomPage.Content);
     }
+
+    [Fact]
+    public void PlanetDetailsPage_InitializesCorrectly()
+    {
+        // Arrange
+        var planet = new Planet
+        {
+            Name = "Earth",
+            Subtitle = "The cradle of life",
+            HeroImage = "earth.png",
+            Description = "The Earth is the only planet known where life exists."
+        };
+
+        // Act
+        var page = new PlanetDetailsPage(planet);
+
+        // Assert
+        Assert.Equal(planet, page.BindingContext);
+        Assert.Equal("Earth", ((Planet)page.BindingContext).Name);
+        Assert.Equal("The cradle of life", ((Planet)page.BindingContext).Subtitle);
+        Assert.Equal("earth.png", ((Planet)page.BindingContext).HeroImage);
+        Assert.Equal("The Earth is the only planet known where life exists.", ((Planet)page.BindingContext).Description);
+    }
+
+    [Fact]
+    public void BackButton_Clicked_NavigatesBack_WithoutException()
+    {
+        // Arrange
+        var planet = new Planet { Name = "Earth" };
+        var page = new PlanetDetailsPage(planet);
+        var navigation = new NavigationPage(page);
+        Application.Current = new App { MainPage = navigation };
+
+        // Act & Assert
+        var exception = Record.ExceptionAsync(() => page.BackButton_Clicked(null, null));
+        Assert.Null(exception.Result);
+    }
+
+    [Fact]
+    public void OnImageTapped_DisplaysZoomedImage_WithoutException()
+    {
+        // Arrange
+        var planet = new Planet { Name = "Earth" };
+        var page = new PlanetDetailsPage(planet);
+        var image = new Image { Source = "earth.png" };
+        var tapEventArgs = new EventArgs();
+
+        // Act & Assert
+        var exception = Record.ExceptionAsync(() => page.OnImageTapped(image, tapEventArgs));
+        Assert.Null(exception.Result);
+    }
 }

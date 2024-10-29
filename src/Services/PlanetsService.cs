@@ -136,7 +136,9 @@ internal static class PlanetsService
     {
         try
         {
-            return Planets;
+            var allPlanets = Planets;
+            Serilog.Log.Information("Successfully retrieved all planets");
+            return allPlanets;
         }
         catch (Exception ex)
         {
@@ -150,7 +152,9 @@ internal static class PlanetsService
     {
         try
         {
-            return Planets.Where(_planet => _planet.Name == planetName).FirstOrDefault() ?? new Planet();
+            var planet = Planets.Where(_planet => _planet.Name == planetName).FirstOrDefault() ?? new Planet();
+            Serilog.Log.Information($"Successfully retrieved planet {planetName}");
+            return planet;
         }
         catch (Exception ex)
         {
@@ -166,8 +170,9 @@ internal static class PlanetsService
         {
             var rnd = new Random();
             var randomizedPlanets = Planets.OrderBy(item => rnd.Next());
-
-            return randomizedPlanets.Take(2).ToList();
+            var featuredPlanets = randomizedPlanets.Take(2).ToList();
+            Serilog.Log.Information("Successfully retrieved featured planets");
+            return featuredPlanets;
         }
         catch (Exception ex)
         {

@@ -12,6 +12,7 @@ public partial class App
         try
         {
             var window = new Window(new AppShell());
+            Serilog.Log.Information("Window created successfully");
             return window;
         }
         catch (Exception ex)

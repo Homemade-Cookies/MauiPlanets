@@ -42,6 +42,27 @@ Here are some usage examples of the Maui Planets app:
 - Explore the planets in the Milky Way galaxy.
 - View detailed information about each planet.
 - Zoom in on planet images for a closer look.
+- Navigate through the app to learn more about the planets.
+- Use the search feature to find specific planets quickly.
+
+## Troubleshooting
+
+If you encounter any issues while using the Maui Planets app, here are some common problems and their solutions:
+
+- **App crashes on startup**: Ensure that you have installed all the required dependencies and followed the installation instructions correctly.
+- **Images not loading**: Check your internet connection and make sure the image URLs are accessible.
+- **Slow performance**: Close any unnecessary background applications and ensure your device meets the minimum system requirements.
+
+## Features
+
+The Maui Planets app includes the following features:
+
+- Explore the planets in the Milky Way galaxy.
+- View detailed information about each planet, including images and descriptions.
+- Zoom in on planet images for a closer look.
+- Navigate through the app to learn more about the planets.
+- User-friendly interface with a visually appealing design.
+- Search feature to find specific planets quickly.
 
 ## Contributing
 

@@ -15,6 +15,7 @@ public sealed partial class PlanetsPage : ContentPage
         lstPopularPlanets.ItemsSource = PlanetsService.GetFeaturedPlanets();
         lstAllPlanets.ItemsSource = PlanetsService.GetAllPlanets();
     }
+
     async void Planets_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (e.CurrentSelection == null || e.CurrentSelection.Count == 0)
@@ -22,6 +23,7 @@ public sealed partial class PlanetsPage : ContentPage
 
         if (e.CurrentSelection[0] is Planet planet)
         {
+            // Navigate to the PlanetDetailsPage with the selected planet
             await Navigation.PushAsync(new PlanetDetailsPage(planet));
         }
     }
@@ -41,7 +43,7 @@ public sealed partial class PlanetsPage : ContentPage
 
     private async Task CloseMenu()
     {
-        //Close the menu and bring back back the main content
+        // Close the menu and bring back the main content
         _ = MainContentGrid.FadeTo(1, AnimationDuration);
         _ = MainContentGrid.ScaleTo(1, AnimationDuration);
         await MainContentGrid.TranslateTo(0, 0, AnimationDuration, Easing.CubicIn);
