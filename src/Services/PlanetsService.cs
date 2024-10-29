@@ -133,19 +133,47 @@ internal static class PlanetsService
     ];
 
     public static List<Planet> GetAllPlanets()
-		=> Planets;
+    {
+        try
+        {
+            return Planets;
+        }
+        catch (Exception ex)
+        {
+            // Log the exception
+            Console.WriteLine($"Error getting all planets: {ex.Message}");
+            throw;
+        }
+    }
 
     public static Planet GetPlanet(string planetName)
-		=> Planets.Where(_planet => _planet.Name == planetName).FirstOrDefault() ?? new Planet();
+    {
+        try
+        {
+            return Planets.Where(_planet => _planet.Name == planetName).FirstOrDefault() ?? new Planet();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception
+            Console.WriteLine($"Error getting planet {planetName}: {ex.Message}");
+            throw;
+        }
+    }
 
     public static List<Planet> GetFeaturedPlanets()
     {
-        var rnd = new Random();
-        var randomizedPlanets = Planets.OrderBy(item => rnd.Next());
+        try
+        {
+            var rnd = new Random();
+            var randomizedPlanets = Planets.OrderBy(item => rnd.Next());
 
-		return randomizedPlanets.Take(2).ToList();
+            return randomizedPlanets.Take(2).ToList();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception
+            Console.WriteLine($"Error getting featured planets: {ex.Message}");
+            throw;
+        }
     }
-        
-
 }
-
