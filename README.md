@@ -47,3 +47,18 @@ Here are some usage examples of the Maui Planets app:
 
 We welcome contributions to the Maui Planets project! To get started, please read our [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines on how to contribute.
 
+## Detailed Description
+
+Maui Planets is a mobile application built using .Net Maui that allows users to explore the planets in the Milky Way galaxy. The app provides detailed information about each planet, including images and descriptions. Users can zoom in on planet images for a closer look and navigate through the app to learn more about the planets.
+
+The purpose of the Maui Planets app is to provide an educational and interactive experience for users to learn about the planets in our galaxy. The app is designed with a user-friendly interface and implements the Dribbble design for a visually appealing experience.
+
+## How to Contribute
+
+We welcome contributions to the Maui Planets project! To get started, please read our [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines on how to contribute.
+
+### Guidelines for Submitting Issues and Pull Requests
+
+- Before submitting an issue, please check the existing issues to see if your problem has already been reported.
+- When submitting an issue, provide as much detail as possible, including steps to reproduce the issue if applicable.
+- When submitting a pull request, ensure that your code follows the project's coding standards and includes tests for any new features or bug fixes.
