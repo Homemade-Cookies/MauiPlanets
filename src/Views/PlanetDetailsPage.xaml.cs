@@ -8,11 +8,13 @@ public sealed partial class PlanetDetailsPage : ContentPage
     {
         InitializeComponent();
 
+        // Set the BindingContext to the provided planet object
         this.BindingContext = planet;
     }
 
     async void BackButton_Clicked(object sender, EventArgs e)
     {
+        // Navigate back to the previous page
         await Navigation.PopAsync();
     }
 
@@ -37,6 +39,7 @@ public sealed partial class PlanetDetailsPage : ContentPage
                                 {
                                     Command = new Command(async () =>
                                     {
+                                        // Navigate back to the previous page when the image is tapped
                                         await Navigation.PopAsync();
                                     })
                                 }

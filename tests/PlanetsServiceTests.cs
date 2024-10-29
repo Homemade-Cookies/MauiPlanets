@@ -44,4 +44,43 @@ public class PlanetsServiceTests
         Assert.NotNull(result);
         Assert.Equal(2, result.Count);
     }
+
+    [Fact]
+    public void GetPlanet_ReturnsEmptyPlanetForInvalidName()
+    {
+        // Act
+        var result = PlanetsService.GetPlanet("InvalidPlanetName");
+
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal(string.Empty, result.Name);
+    }
+
+    [Fact]
+    public void GetAllPlanets_ThrowsExceptionWhenServiceFails()
+    {
+        // Arrange
+        var originalPlanets = PlanetsService.Planets;
+        PlanetsService.Planets = null;
+
+        // Act & Assert
+        Assert.Throws<Exception>(() => PlanetsService.GetAllPlanets());
+
+        // Cleanup
+        PlanetsService.Planets = originalPlanets;
+    }
+
+    [Fact]
+    public void GetFeaturedPlanets_ThrowsExceptionWhenServiceFails()
+    {
+        // Arrange
+        var originalPlanets = PlanetsService.Planets;
+        PlanetsService.Planets = null;
+
+        // Act & Assert
+        Assert.Throws<Exception>(() => PlanetsService.GetFeaturedPlanets());
+
+        // Cleanup
+        PlanetsService.Planets = originalPlanets;
+    }
 }
