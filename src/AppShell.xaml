@@ -54,4 +54,14 @@
         ContentTemplate="{DataTemplate local:PlanetsPage}"
         Icon="imgmenu.png"
         Route="PlanetsPage" />
+    <ShellContent
+        Title="Chess Game"
+        ContentTemplate="{DataTemplate local:ChessGamePage}"
+        Icon="chess_icon.png"
+        Route="ChessGamePage" />
+    <ShellContent
+        Title="Settings"
+        ContentTemplate="{DataTemplate local:SettingsPage}"
+        Icon="settings_icon.png"
+        Route="SettingsPage" />
 </Shell>

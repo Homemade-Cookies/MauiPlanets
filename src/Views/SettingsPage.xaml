@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiPlanets.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Settings">
+
+    <StackLayout Padding="20">
+
+        <Label Text="Piece Colors" FontSize="Medium" />
+        <Picker x:Name="PieceColorsPicker" Title="Select Piece Color">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>White</x:String>
+                    <x:String>Black</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Label Text="Board Themes" FontSize="Medium" Margin="0,20,0,0" />
+        <Picker x:Name="BoardThemesPicker" Title="Select Board Theme">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Classic</x:String>
+                    <x:String>Modern</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Label Text="Difficulty Level" FontSize="Medium" Margin="0,20,0,0" />
+        <Slider x:Name="DifficultySlider" Minimum="1" Maximum="10" Value="5" />
+
+    </StackLayout>
+
+</ContentPage>
