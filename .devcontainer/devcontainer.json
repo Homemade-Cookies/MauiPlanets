@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "build": "dotnet build src/MauiPlanets.App.sln"
+  }
+}

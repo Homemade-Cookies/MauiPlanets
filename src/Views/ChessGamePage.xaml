@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiPlanets.Views.ChessGamePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Chess Game">
+
+    <Grid>
+        <!-- Define the layout for the chess game board using a Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Add Image elements for the chess pieces -->
+        <Image x:Name="ChessPiece1" Source="chess_piece_1.png" Grid.Row="1" Grid.Column="0" />
+        <Image x:Name="ChessPiece2" Source="chess_piece_2.png" Grid.Row="1" Grid.Column="1" />
+        <!-- Add more Image elements for other chess pieces as needed -->
+
+        <!-- Add Button elements for game interactions -->
+        <Button Text="New Game" Grid.Row="2" Grid.Column="0" />
+        <Button Text="Save Game" Grid.Row="2" Grid.Column="1" />
+        <Button Text="Load Game" Grid.Row="2" Grid.Column="2" />
+    </Grid>
+
+</ContentPage>
